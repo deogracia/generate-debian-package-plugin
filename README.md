@@ -1,6 +1,6 @@
 # generate-debian-package plugin for Jenkins
 
-TODO: Purpose and awesomeness when finished.
+Generate Debian package, my way
 
 ## Development
 
