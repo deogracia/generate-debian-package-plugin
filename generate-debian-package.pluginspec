@@ -17,10 +17,10 @@ Jenkins::Plugin::Specification.new do |plugin|
   #  :github => 'myuser/generate-debian-package-plugin' (without myuser it defaults to jenkinsci)
   #  :git => 'git://repo.or.cz/generate-debian-package-plugin.git'
   #  :svn => 'https://svn.jenkins-ci.org/trunk/hudson/plugins/generate-debian-package-plugin'
-  plugin.uses_repository :git => git@git.clever-age.net:lfelicite/generate-debian-package-plugin.git
+  plugin.uses_repository :git => 'git@github.com:deogracia/generate-debian-package-plugin.git'
 
   # This is a required dependency for every ruby plugin.
-  plugin.depends_on 'ruby-runtime', '0.10'
+  plugin.depends_on 'ruby-runtime', '0.12'
 
   # This is a sample dependency for a Jenkins plugin, 'git'.
   #plugin.depends_on 'git', '1.1.11'
