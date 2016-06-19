@@ -1,0 +1,44 @@
+<%
+  f = taglib("/lib/form")
+  f.block do
+    f.entry(:title => 'Path to Debian directory', :field => 'debian_directory_path', :description => 'Where is Debian directory?' ) do
+      if instance.nil?
+        f.textarea :value => './debian'
+      else
+        f.textarea :value => instance.get('debian_directory_path')
+      end
+    end
+
+    f.entry(:title => 'Distribution', :field => 'target_distribution') do
+      if instance.nil?
+        f.textarea :value => 'jessie'
+      else
+        f.textarea :value => instance.get('target_distribution')
+      end
+    end
+
+    f.entry(:title => 'Output directory', :field => 'output_directory_path', :description => 'Where to put generated packages?') do
+      if instance.nil?
+        f.textarea :value => '../output'
+      else
+        f.textarea :value => instance.get('output_directory_path')
+      end
+    end
+
+    f.entry(:title => 'Use pbuilder', :field => 'use_pbuilder', :description => 'Build with pbuilder') do
+      if instance.nil?
+        f.checkbox :checked => true
+      else
+        f.checkbox :checked => ( instance.get('use_pbuilder_int').nil?  or  instance.get('use_pbuilder_int') == 1 )
+      end
+   end
+
+    f.entry(:title => 'Sign Package', :field => 'sign_package', :description => "Sign generated package" ) do
+        if instance.nil?
+          f.checkbox :checked => true
+        else
+          f.checkbox :checked => ( instance.get('sign_package_int').nil?  or  instance.get('sign_package_int') == 1 )
+        end
+      end
+  end
+%>
