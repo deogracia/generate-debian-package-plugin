@@ -51,6 +51,7 @@ jenkins_up
 
 java -jar jenkins-cli.jar -s http://localhost:8080 quiet-down
 java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin greenballs -deploy
+java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin jobconfighistory -deploy
 java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin ruby-runtime -deploy -restart
 
 jenkins_up
