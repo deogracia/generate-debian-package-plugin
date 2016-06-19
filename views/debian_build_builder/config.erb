@@ -32,13 +32,32 @@
         f.checkbox :checked => ( instance.get('use_pbuilder_int').nil?  or  instance.get('use_pbuilder_int') == 1 )
       end
    end
-
-    f.entry(:title => 'Sign Package', :field => 'sign_package', :description => "Sign generated package" ) do
-        if instance.nil?
-          f.checkbox :checked => true
-        else
-          f.checkbox :checked => ( instance.get('sign_package_int').nil?  or  instance.get('sign_package_int') == 1 )
+    f.block do
+      f.entry(:title => 'Sign Package', :field => 'sign_package', :description => "Sign generated package" ) do
+          if instance.nil?
+            f.checkbox :checked => true
+          else
+            f.checkbox :checked => ( instance.get('sign_package_int').nil?  or  instance.get('sign_package_int') == 1 )
+          end
         end
+      f.nested do
+        f.advanced(:title => "GPG Advanced Option") do
+          f.entry(:title => 'GPG Private Key', :field =>'gpg_private_key') do
+            if instance.nil?
+              f.textarea :value => ''
+            else
+              f.textarea :value => instance.get('gpg_private_key')
+            end
+          end
+          f.entry(:title => 'GPG Public Key', :field =>'gpg_public_key') do
+            if instance.nil?
+              f.textarea :value => ''
+            else
+              f.textarea :value => instance.get('gpg_public_key')
+            end
+          end
+        end
+      end
       end
   end
 %>

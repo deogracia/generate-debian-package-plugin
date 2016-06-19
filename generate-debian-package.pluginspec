@@ -1,7 +1,7 @@
 Jenkins::Plugin::Specification.new do |plugin|
   plugin.name = "generate-debian-package"
   plugin.display_name = "Generate Debian Package Plugin"
-  plugin.version = '0.0.1'
+  plugin.version = '0.0.2'
   plugin.description = 'Another Debian package generator'
 
   # You should create a wiki-page for your plugin when you publish it, see

@@ -7,6 +7,7 @@ class Debian_buildBuilder < Jenkins::Tasks::Builder
   attr_accessor :use_pbuilder, :use_pbuilder_int
   attr_accessor :debian_directory_path, :target_distribution
   attr_accessor :output_directory_path
+  attr_accessor :gpg_private_key, :gpg_public_key
 
   # Invoked with the form parameters when this extension point
   # is created from a configuration screen.
@@ -18,6 +19,8 @@ class Debian_buildBuilder < Jenkins::Tasks::Builder
     @output_directory_path = attrs["output_directory_path"]
     @use_pbuilder          = attrs["use_pbuilder"]
     @use_pbuilder_int      = @use_pbuilder == true ? 1 : 0
+    @gpg_private_key       = attrs["gpg_private_key"]
+    @gpg_public_key        = attrs["gpg_public_key"]
   end
 
   ##
@@ -50,6 +53,8 @@ class Debian_buildBuilder < Jenkins::Tasks::Builder
     listener.info "#{display_name} : output_directory_path = #{@output_directory_path}"
     listener.info "#{display_name} : use_pbuilder          = #{@use_pbuilder}"
     listener.info "#{display_name} : use_pbuilder_int      = #{@use_pbuilder_int}"
+    listener.info "#{display_name} : gpg_private_key       = #{@gpg_private_key}"
+    listener.info "#{display_name} : gpg_public_key        = #{@gpg_public_key}"
     listener.info "#{display_name} : Bye :D"
   end
 
