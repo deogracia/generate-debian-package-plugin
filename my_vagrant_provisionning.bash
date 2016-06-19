@@ -36,7 +36,7 @@ rm * -rf
 popd
 
 apt-get update
-apt-get dist-upgarde -y
+apt-get dist-upgrade -y
 
 
 apt-get install -y vim
