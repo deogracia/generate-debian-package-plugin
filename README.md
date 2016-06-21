@@ -20,7 +20,12 @@ You need to have
 devscripts pbuilder dh-make fakeroot build-essential dh-autoreconf quilt
 ```
 
-* administrative rights (using sudo, for example) to run pbuilder
+* administrative rights to run pbuilder
+ * with sudo, in /etc/sudoers.d/jenkins
+
+```
+jenkins ALL=(ALL) NOPASSWD: /usr/sbin/pbuilder
+```
 
 ### Setup
 
